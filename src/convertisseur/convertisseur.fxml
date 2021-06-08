@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="852.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="convertisseur.ColorController">
+   <children>
+      <FlowPane fx:id="couleurs" hgap="10.0" layoutX="31.0" layoutY="28.0" prefHeight="149.0" prefWidth="791.0" vgap="10.0">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Button fx:id="creer" mnemonicParsing="false" onAction="#creerAction" prefHeight="65.0" prefWidth="65.0" text="+">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </FlowPane>
+      <BorderPane layoutX="31.0" layoutY="260.0" prefHeight="278.0" prefWidth="791.0">
+         <left>
+            <VBox prefHeight="278.0" prefWidth="242.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="206.0" prefWidth="217.0" spacing="30.0">
+                     <children>
+                        <Circle fx:id="preview" fill="WHITE" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Slider fx:id="barre" maxHeight="-Infinity" orientation="VERTICAL" prefHeight="164.0" prefWidth="16.0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="242.0" spacing="30.0">
+                     <children>
+                        <Circle fx:id="rouge" fill="#ff1f1f" onMouseClicked="#rouge_clicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="vert" fill="#1fff4b" onMouseClicked="#vert_clicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="bleu" fill="#1f46ff" onMouseClicked="#bleu_clicked" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <VBox prefHeight="278.0" prefWidth="288.0" BorderPane.alignment="CENTER">
+               <children>
+                  <FlowPane fx:id="noirblanc" alignment="TOP_CENTER" hgap="10.0" prefHeight="241.0" prefWidth="310.0" vgap="10.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </FlowPane>
+                  <HBox alignment="CENTER" prefHeight="44.0" prefWidth="288.0" spacing="70.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#generer" prefHeight="69.0" prefWidth="108.0" text="Générer" />
+                        <Button fx:id="exporter" mnemonicParsing="false" onAction="#exporterAction" prefHeight="69.0" prefWidth="108.0" text="Exporter" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </right>
+         <center>
+            <VBox alignment="CENTER" prefHeight="278.0" prefWidth="33.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="41.0" prefWidth="178.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="50.0" text="R" />
+                        <TextField fx:id="rouge_entree" onKeyTyped="#rouge_change" prefHeight="25.0" prefWidth="103.0" text="0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="41.0" prefWidth="178.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="50.0" text="V" />
+                        <TextField fx:id="vert_entree" onKeyTyped="#vert_change" prefHeight="25.0" prefWidth="103.0" text="0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="41.0" prefWidth="178.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="50.0" text="B" />
+                        <TextField fx:id="bleu_entree" onKeyTyped="#bleu_change" prefHeight="25.0" prefWidth="103.0" text="0" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="41.0" prefWidth="366.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="39.0" prefWidth="50.0" text="HEX" />
+                        <TextField fx:id="hex_entree" editable="false" onKeyReleased="#hex_change" prefHeight="25.0" prefWidth="103.0" text="0x000000ff" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+      <HBox fx:id="propositions" alignment="CENTER" layoutX="31.0" layoutY="177.0" prefHeight="82.0" prefWidth="791.0" spacing="5.0" />
+   </children>
+</Pane>
